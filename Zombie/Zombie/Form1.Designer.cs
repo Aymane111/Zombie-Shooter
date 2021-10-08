@@ -90,6 +90,7 @@
             this.img_joueur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.img_joueur.TabIndex = 6;
             this.img_joueur.TabStop = false;
+            this.img_joueur.Click += new System.EventHandler(this.img_joueur_Click);
             // 
             // GameTimer
             // 

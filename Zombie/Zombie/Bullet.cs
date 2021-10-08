@@ -12,11 +12,12 @@ namespace Zombie
     class Bullet
     {
         public string direction;
-        public int bulletTop, bulletLeft;
+        public int bulletTop;
+        public int bulletLeft;
 
         private int speed = 20;
-        private PictureBox img_bullet= new PictureBox();
-        private Timer bulletTimer = new Timer();
+        PictureBox img_bullet= new PictureBox();
+        Timer bulletTimer = new Timer();
 
         public void MakeBullet(Form form)
         { 
@@ -26,8 +27,8 @@ namespace Zombie
             img_bullet.Left = bulletLeft;
             img_bullet.Top = bulletTop;
             img_bullet.BringToFront();
-
             form.Controls.Add(img_bullet);
+
             bulletTimer.Interval = speed;
             bulletTimer.Tick += new EventHandler(BulletTimerEvent);
             bulletTimer.Start();
@@ -53,7 +54,7 @@ namespace Zombie
                 img_bullet.Top += speed;
             }
 
-            if(img_bullet.Left < 12 || img_bullet.Left > 909 || img_bullet.Top < 12 || img_bullet.Top > 700)
+            if(img_bullet.Left < 0 || img_bullet.Left > 940 || img_bullet.Top < 0 || img_bullet.Top > 700)
             {
                 bulletTimer.Stop();
                 bulletTimer.Dispose();
